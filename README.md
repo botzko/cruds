@@ -1,4 +1,4 @@
 cruds
 =====
 
-Basic scaffold for angularjs firebase crud applications
+Basic scaffold for angularjs firebase crud applications (Construction stage)
