@@ -1,4 +1,29 @@
-<h1>Data below</h1>
-<p ng-repeat="dat in data">
-<input type="text" ng-model="dat">
-</p>
+<div class="jumbotron">
+    <div class="container">
+        <h1>{{data[current].hl}}</h1>
+        <p>{{data[current].desc}}</p>
+    </div>
+</div>
+<div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-md-8">
+            <div class="thumbnail">
+                <img src="{{data[current].img}}" width="100%" alt="{{data[current].hl}}">
+                <div class="caption">
+                    <h3>Начин на приготвяне</h3>
+                    <p class="algr">{{data[current].algr}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="thumbnail">
+                <img src="{{data[current].img}}" width="100%" alt="{{data[current].hl}}">
+                <h3>Продукти</h3>
+                <div class="caption">
+                    <p>{{data[current].rec}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

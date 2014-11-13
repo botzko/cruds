@@ -1,26 +1,57 @@
-'use strict';
+/* global angular*/
 
 
-angular.module('myApp', ['ngRoute', 'ngAnimate', 'firebase']).
+angular.module('myApp', ['ngRoute', 'ngAnimate']).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/', {templateUrl: 'views/main.html', controller: 'showCtrl'});
-  $routeProvider.when('/alt', {templateUrl: 'views/alt.html', controller: 'altCtrl'});
-  $routeProvider.when('/test', {templateUrl: 'views/main.html', controller: 'editCtrl'});
+  $routeProvider.when('/:code', {templateUrl: 'views/alt.html', controller: 'altCtrl'});
+  $routeProvider.when('/recepies', {redirectTo: '/'});
   $routeProvider.otherwise({redirectTo: '/'});
-}]);
+}])
+.factory('Data', function () {
+    return [{
+        id: "0",
+        hl: "Питки",
+        img: "assets/img/pitki.jpg",
+        desc: "Бързи питки със масло и сиренце.",
+        rec: "2 ч.ч. Брашно 1 с.л. захар",
+        algr: "Елементарен примерен текст, използван в печатарската и типографската индустрия. Lorem Ipsum е индустриален стандарт от около 1500 година, когато неизвестен печатар взема няколко печатарски букви и ги разбърква, за да напечата с тях книга с примерни шрифтове."
+    },{
+        id: "1",
+        hl: "Негърче",
+        img: "assets/img/negyrche.jpg",
+        desc: "Сладкиш на расистка основа.",
+        rec: "2 ч.ч. Брашно 1 с.л. захар",
+        algr: "Елементарен примерен текст, използван в печатарската и типографската индустрия. Lorem Ipsum е индустриален стандарт от около 1500 година, когато неизвестен печатар взема няколко печатарски букви и ги разбърква, за да напечата с тях книга с примерни шрифтове."
+    },{
+        id: "2",
+        hl: "Кекс",
+        img: "assets/img/keks.jpg",
+        desc: "Оригиналната рецепта за кекс.",
+        rec: "2 ч.ч. Брашно 1 с.л. захар",
+        algr: "Елементарен примерен текст, използван в печатарската и типографската индустрия. Lorem Ipsum е индустриален стандарт от около 1500 година, когато неизвестен печатар взема няколко печатарски букви и ги разбърква, за да напечата с тях книга с примерни шрифтове."
+    },{
+        id: "3",
+        hl: "Рошла",
+        img: "assets/img/roshla.jpg",
+        desc: "Рошав сладкиш.",
+        rec: "2 ч.ч. Брашно 1 с.л. захар",
+        algr: "Елементарен примерен текст, използван в печатарската и типографската индустрия. Lorem Ipsum е индустриален стандарт от около 1500 година, когато неизвестен печатар взема няколко печатарски букви и ги разбърква, за да напечата с тях книга с примерни шрифтове."
+    },{
+        id: "4",
+        hl: "Фунийки",
+        img: "assets/img/funiiki.jpg",
+        desc: "Фуниики пълни с вкусен крем.",
+        rec: "2 ч.ч. Брашно 1 с.л. захар",
+        algr: "Елементарен примерен текст, използван в печатарската и типографската индустрия. Lorem Ipsum е индустриален стандарт от около 1500 година, когато неизвестен печатар взема няколко печатарски букви и ги разбърква, за да напечата с тях книга с примерни шрифтове."
+    }];
+}); 
 
 
-function showCtrl($scope, $firebase) {
-    $scope.keks = "КЕКС";
+function showCtrl($scope, Data) {
+    $scope.data = Data;
 }
-function altCtrl($scope, $firebase) {
-    $scope.alt = "АЛТ";
-    var ref = new Firebase("https://smartyp.firebaseio.com/");
-    var sync = $firebase(ref);
-    var syncObject = sync.$asObject();
-    syncObject.$bindTo($scope, "data");
-    
-    $scope.addMessage = function(text) {
-    $scope.messages.$add({text: text});
-  }
+function altCtrl($scope, $routeParams, Data) {
+    $scope.data = Data;
+    $scope.current = $routeParams.code;
 }

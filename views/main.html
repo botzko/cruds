@@ -1,1 +1,25 @@
-<h1>{{keks}}</h1>
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+    <div class="container">
+        <h1>Рецептите на мама</h1>
+        <p>Това са рецептите на мама които ние всички <del>обичаме</del> ОБОЖАВАМЕ ;)</p>
+<!--         <p><a class="btn btn-warning btn-lg" role="button" href="#recepies" id="recepies">Разгледай &raquo;</a> -->
+        </p>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-md-4" ng-repeat="dat in data">
+            <div class="thumbnail">
+                <h3>{{dat.hl}}</h3>
+                <img src="{{dat.img}}" width="100%" alt="{{dat.hl}}">
+                <div class="caption">
+                    <p>{{dat.desc}}</p>
+                    <p><a href="#/{{dat.id}}" class="btn btn-danger" role="button">Забъркай</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
