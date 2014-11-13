@@ -1,4 +1,4 @@
-cruds
+Cooker
 =====
 
-Basic scaffold for angularjs firebase crud applications (Construction stage)
+A recipes site.
