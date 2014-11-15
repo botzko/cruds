@@ -21,7 +21,10 @@
                 <img src="{{data[current].prod}}" width="100%" alt="{{data[current].hl}}">
                 <h3>Продукти</h3>
                 <div class="caption">
-                    <p>{{data[current].rec}}</p>
+                    <!-- p>{{data[current].rec}}</p -->
+                    <ul>
+                        <li ng-repeat="rec in data[current].rec">{{rec}}</li>
+                    </ul>
                 </div>
             </div>
         </div>
