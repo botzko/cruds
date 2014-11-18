@@ -5,7 +5,7 @@ body {
 }
 .jumbotron {
 	padding: 30px;
-	margin-bottom: 30px;
+	margin-bottom: 10px;
 	color: inherit;
 	background-color: maroon;
 }
@@ -32,4 +32,7 @@ border-radius: 4px;
 }
 input{
     background-color: maroon;
+}
+.nav li a{
+    color: maroon;
 }

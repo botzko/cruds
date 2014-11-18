@@ -1,25 +1,23 @@
-<!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
     <div class="container">
         <h1>Рецептите на мама</h1>
         <p>Това са рецептите на мама които ние всички <del>обичаме</del> ОБОЖАВАМЕ ;)</p>
-<!--         <p><a class="btn btn-warning btn-lg" role="button" href="#recepies" id="recepies">Разгледай &raquo;</a> -->
         </p>
     </div>
 </div>
 
 <div class="container">
+    <!-- Example row of columns -->
     <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-            <li><a href="#">Всички</a></li>
-            <li><a href="#" ng-click="count = count + 1">Солени</a></li>
-            <li><a href="#">Сладки {{count}}</a></li>
-            <li><a href="#">Ястия </a></li>
-            <!--li><input type="text" ng-model="filt"></li-->
-        </ul>
+            <li><a ng-click="filt = ''"><span class="glyphicon glyphicon-filter" aria-hidden="true"></span></a></li>
+            <li><a ng-click="filt = ''">      Всички</a></li>
+            <li><a ng-click="filt = 'soleno'">Солени</a></li>
+            <li><a ng-click="filt = 'sladko'">Сладки</a></li>
+            <li><a ng-click="filt = 'mandji'">Манджички </a></li>
+        </ul><br><br>
+        <hr style="border: 1px solid maroon">
     </div>
-    <!-- Example row of columns -->
-    
     <div class="row">
         <div class="col-md-4" ng-repeat="dat in data | filter: filt">
             <div class="thumbnail">
